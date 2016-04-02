@@ -1,14 +1,14 @@
 # Manage user and group
 Chef::Log.warn("ahtung!")
-Chef::Log.warn("#{node['zabbix']}")
-user node['zabbix']['agent']['user'] do
+Chef::Log.warn("#{node['zabbix']['agent']['user']}")
+user 'zabbix' do
   shell node['zabbix']['agent']['shell']
   system true
   supports manage_home: true
 end
-group node['zabbix']['agent']['group'] do
+group 'zabbix' do
   action :create
-  members node['zabbix']['agent']['user']
+  members 'zabbix'
 end
 
 
