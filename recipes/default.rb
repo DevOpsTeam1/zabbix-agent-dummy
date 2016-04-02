@@ -1,4 +1,6 @@
 # Manage user and group
+
+Chef::Log.fatal("#{node['zabbix']['agent']['user']}")
 user node['zabbix']['agent']['user'] do
   shell node['zabbix']['agent']['shell']
   system true
