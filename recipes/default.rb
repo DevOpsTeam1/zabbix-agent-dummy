@@ -1,21 +1,14 @@
 # Manage user and group
-if node['platform'] == 'windows'
-  user node['zabbix']['agent']['user'] do
-    not_if { node['zabbix']['agent']['user'] == 'Administrator' }
-  end
-else
-  group node['zabbix']['agent']['group'] do
-    gid node['zabbix']['agent']['gid'] if node['zabbix']['agent']['gid']
-    system true
-  end
-  user node['zabbix']['agent']['user'] do
-    shell node['zabbix']['agent']['shell']
-    uid node['zabbix']['agent']['uid'] if node['zabbix']['agent']['uid']
-    gid node['zabbix']['agent']['gid'] || node['zabbix']['agent']['group']
-    system true
-    supports manage_home: true
-  end
+user node['zabbix']['agent']['user'] do
+  shell node['zabbix']['agent']['shell']
+  system true
+  supports manage_home: true
 end
+group node['zabbix']['agent']['group'] do
+  action :create
+  members node['zabbix']['agent']['user']
+end
+
 
 directory node['zabbix']['install_dir'] do
   owner node['zabbix']['agent']['user']
