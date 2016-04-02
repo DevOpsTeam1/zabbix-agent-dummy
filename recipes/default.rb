@@ -1,6 +1,6 @@
 # Manage user and group
-
-Chef::Log.info("#{node['zabbix']['agent']['user']}")
+Chef::Log.info("ahtung!")
+Chef::Log.info("#{node['zabbix']}")
 user node['zabbix']['agent']['user'] do
   shell node['zabbix']['agent']['shell']
   system true
