@@ -1,5 +1,7 @@
 default['php']['install_method'] = 'source'
 
+default['zabbix'] = {}
+default['zabbix']['agent'] = {}
 default['zabbix']['agent']['user']         = 'zabbix'
 default['zabbix']['agent']['group']        = 'zabbix'
 default['zabbix']['agent']['shell']        = '/bin/bash'
