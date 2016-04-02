@@ -1,6 +1,6 @@
 # Manage user and group
-Chef::Log.info("ahtung!")
-Chef::Log.info("#{node['zabbix']}")
+Chef::Log.warn("ahtung!")
+Chef::Log.warn("#{node['zabbix']}")
 user node['zabbix']['agent']['user'] do
   shell node['zabbix']['agent']['shell']
   system true
