@@ -10,7 +10,7 @@ default['zabbix']['install_dir']      = '/opt/zabbix'
 default['zabbix']['scripts']          = '/etc/zabbix/scripts'
 
 default['zabbix']['agent']['version']     = '3.0'
-default['zabbix']['agent']['hostname']    = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'app_bundle' }[0]
+default['zabbix']['agent']['hostname']    = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'app-bundle' }[0]
 normal['zabbix']['agent']['servers_name']   = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'zabbix-srv' }[0]
 normal['zabbix']['agent']['servers_ip']      = normal['zabbix']['agent']['servers_active'] = node['epc-provisioning']['instances'].find { |i| i[1]['role'] == 'zabbix-srv' }[1]['private_ip_address']
 
