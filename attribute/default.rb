@@ -2,6 +2,7 @@ default['php']['install_method'] = 'source'
 
 default['zabbix']['agent']['user']         = 'zabbix'
 default['zabbix']['agent']['group']        = 'zabbix'
+default['zabbix']['agent']['shell']        = '/bin/bash'
 
 default['zabbix']['install_dir']      = '/opt/zabbix'
 default['zabbix']['scripts']          = '/etc/zabbix/scripts'
